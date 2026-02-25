@@ -1,11 +1,11 @@
 mainick_keycloak_security_auth_connect:
     path:       /auth/keycloak/connect
-    controller: Hamikod\KeycloakClientBundle\Controller\KeycloakController::connect
+    controller: HamidouIe\KeycloakClientBundle\Controller\KeycloakController::connect
 
 mainick_keycloak_security_auth_connect_check:
     path:       /auth/keycloak/check
-    controller: Hamikod\KeycloakClientBundle\Controller\KeycloakController::connectCheck
+    controller: HamidouIe\KeycloakClientBundle\Controller\KeycloakController::connectCheck
 
 mainick_keycloak_security_auth_logout:
     path:       /auth/keycloak/logout
-    controller: Hamikod\KeycloakClientBundle\Controller\KeycloakController::logout
+    controller: HamidouIe\KeycloakClientBundle\Controller\KeycloakController::logout

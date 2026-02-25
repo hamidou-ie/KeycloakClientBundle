@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Representation\Collection;
+namespace HamidouIe\KeycloakClientBundle\Representation\Collection;
 
-use Hamikod\KeycloakClientBundle\Representation\RealmRepresentation;
+use HamidouIe\KeycloakClientBundle\Representation\RealmRepresentation;
 
 /**
  * @extends Collection<RealmRepresentation>

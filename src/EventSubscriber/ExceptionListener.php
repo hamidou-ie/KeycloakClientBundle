@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\EventSubscriber;
+namespace HamidouIe\KeycloakClientBundle\EventSubscriber;
 
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use Symfony\Component\HttpFoundation\RedirectResponse;

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Token;
+namespace HamidouIe\KeycloakClientBundle\Token;
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
-use Hamikod\KeycloakClientBundle\Exception\TokenDecoderException;
-use Hamikod\KeycloakClientBundle\Interface\TokenDecoderInterface;
+use HamidouIe\KeycloakClientBundle\Exception\TokenDecoderException;
+use HamidouIe\KeycloakClientBundle\Interface\TokenDecoderInterface;
 
 class HS256TokenDecoder implements TokenDecoderInterface
 {

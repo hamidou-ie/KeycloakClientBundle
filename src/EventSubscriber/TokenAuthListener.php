@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\EventSubscriber;
+namespace HamidouIe\KeycloakClientBundle\EventSubscriber;
 
-use Hamikod\KeycloakClientBundle\Annotation\ExcludeTokenValidationAttribute;
-use Hamikod\KeycloakClientBundle\Interface\IamClientInterface;
-use Hamikod\KeycloakClientBundle\Token\AccessToken;
+use HamidouIe\KeycloakClientBundle\Annotation\ExcludeTokenValidationAttribute;
+use HamidouIe\KeycloakClientBundle\Interface\IamClientInterface;
+use HamidouIe\KeycloakClientBundle\Token\AccessToken;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;

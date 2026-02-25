@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Provider;
+namespace HamidouIe\KeycloakClientBundle\Provider;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use League\OAuth2\Client\Token\AccessToken as AccessTokenLib;
-use Hamikod\KeycloakClientBundle\DTO\UserRepresentationDTO;
-use Hamikod\KeycloakClientBundle\Interface\AccessTokenInterface;
-use Hamikod\KeycloakClientBundle\Interface\IamClientInterface;
-use Hamikod\KeycloakClientBundle\Token\AccessToken;
-use Hamikod\KeycloakClientBundle\Token\KeycloakResourceOwner;
-use Hamikod\KeycloakClientBundle\Token\TokenDecoderFactory;
+use HamidouIe\KeycloakClientBundle\DTO\UserRepresentationDTO;
+use HamidouIe\KeycloakClientBundle\Interface\AccessTokenInterface;
+use HamidouIe\KeycloakClientBundle\Interface\IamClientInterface;
+use HamidouIe\KeycloakClientBundle\Token\AccessToken;
+use HamidouIe\KeycloakClientBundle\Token\KeycloakResourceOwner;
+use HamidouIe\KeycloakClientBundle\Token\TokenDecoderFactory;
 use Psr\Log\LoggerInterface;
 use Stevenmaguire\OAuth2\Client\Provider\Keycloak;
 

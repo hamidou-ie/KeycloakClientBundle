@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Interface;
+namespace HamidouIe\KeycloakClientBundle\Interface;
 
-use Hamikod\KeycloakClientBundle\DTO\UserRepresentationDTO;
-use Hamikod\KeycloakClientBundle\Token\KeycloakResourceOwner;
+use HamidouIe\KeycloakClientBundle\DTO\UserRepresentationDTO;
+use HamidouIe\KeycloakClientBundle\Token\KeycloakResourceOwner;
 
 interface IamClientInterface
 {

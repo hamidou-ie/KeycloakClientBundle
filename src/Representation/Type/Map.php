@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Representation\Type;
+namespace HamidouIe\KeycloakClientBundle\Representation\Type;
 
 /**
  * @template T

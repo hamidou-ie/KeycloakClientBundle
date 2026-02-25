@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Representation;
+namespace HamidouIe\KeycloakClientBundle\Representation;
 
-use Hamikod\KeycloakClientBundle\Representation\Collection\UPAttributeCollection;
-use Hamikod\KeycloakClientBundle\Representation\Collection\UPGroupCollection;
+use HamidouIe\KeycloakClientBundle\Representation\Collection\UPAttributeCollection;
+use HamidouIe\KeycloakClientBundle\Representation\Collection\UPGroupCollection;
 
 final class UPConfig extends Representation
 {

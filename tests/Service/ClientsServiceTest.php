@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Tests\Service;
+namespace HamidouIe\KeycloakClientBundle\Tests\Service;
 
 use GuzzleHttp\ClientInterface;
-use Hamikod\KeycloakClientBundle\Provider\KeycloakAdminClient;
-use Hamikod\KeycloakClientBundle\Representation\ClientRepresentation;
-use Hamikod\KeycloakClientBundle\Representation\Collection\ClientCollection;
-use Hamikod\KeycloakClientBundle\Representation\Collection\GroupCollection;
-use Hamikod\KeycloakClientBundle\Representation\Collection\RoleCollection;
-use Hamikod\KeycloakClientBundle\Representation\Collection\UserCollection;
-use Hamikod\KeycloakClientBundle\Representation\GroupRepresentation;
-use Hamikod\KeycloakClientBundle\Representation\RoleRepresentation;
-use Hamikod\KeycloakClientBundle\Representation\UserRepresentation;
-use Hamikod\KeycloakClientBundle\Serializer\Serializer;
-use Hamikod\KeycloakClientBundle\Service\ClientsService;
-use Hamikod\KeycloakClientBundle\Service\Criteria;
-use Hamikod\KeycloakClientBundle\Token\AccessToken;
+use HamidouIe\KeycloakClientBundle\Provider\KeycloakAdminClient;
+use HamidouIe\KeycloakClientBundle\Representation\ClientRepresentation;
+use HamidouIe\KeycloakClientBundle\Representation\Collection\ClientCollection;
+use HamidouIe\KeycloakClientBundle\Representation\Collection\GroupCollection;
+use HamidouIe\KeycloakClientBundle\Representation\Collection\RoleCollection;
+use HamidouIe\KeycloakClientBundle\Representation\Collection\UserCollection;
+use HamidouIe\KeycloakClientBundle\Representation\GroupRepresentation;
+use HamidouIe\KeycloakClientBundle\Representation\RoleRepresentation;
+use HamidouIe\KeycloakClientBundle\Representation\UserRepresentation;
+use HamidouIe\KeycloakClientBundle\Serializer\Serializer;
+use HamidouIe\KeycloakClientBundle\Service\ClientsService;
+use HamidouIe\KeycloakClientBundle\Service\Criteria;
+use HamidouIe\KeycloakClientBundle\Token\AccessToken;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;

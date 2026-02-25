@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Representation;
+namespace HamidouIe\KeycloakClientBundle\Representation;
 
 enum UnmanagedAttributePolicyEnum: string
 {

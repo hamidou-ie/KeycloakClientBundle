@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Token;
+namespace HamidouIe\KeycloakClientBundle\Token;
 
 use Firebase\JWT\JWK;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
-use Hamikod\KeycloakClientBundle\Exception\TokenDecoderException;
-use Hamikod\KeycloakClientBundle\Interface\TokenDecoderInterface;
+use HamidouIe\KeycloakClientBundle\Exception\TokenDecoderException;
+use HamidouIe\KeycloakClientBundle\Interface\TokenDecoderInterface;
 
 final readonly class JWKSTokenDecoder implements TokenDecoderInterface
 {

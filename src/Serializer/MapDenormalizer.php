@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Serializer;
+namespace HamidouIe\KeycloakClientBundle\Serializer;
 
-use Hamikod\KeycloakClientBundle\Representation\Type\Map;
+use HamidouIe\KeycloakClientBundle\Representation\Type\Map;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
 final class MapDenormalizer implements DenormalizerInterface

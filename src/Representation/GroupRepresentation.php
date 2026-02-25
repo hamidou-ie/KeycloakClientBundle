@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Representation;
+namespace HamidouIe\KeycloakClientBundle\Representation;
 
-use Hamikod\KeycloakClientBundle\Annotation\Since;
-use Hamikod\KeycloakClientBundle\Representation\Collection\GroupCollection;
-use Hamikod\KeycloakClientBundle\Representation\Type\Map;
+use HamidouIe\KeycloakClientBundle\Annotation\Since;
+use HamidouIe\KeycloakClientBundle\Representation\Collection\GroupCollection;
+use HamidouIe\KeycloakClientBundle\Representation\Type\Map;
 
 final class GroupRepresentation extends Representation
 {

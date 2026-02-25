@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Exception;
+namespace HamidouIe\KeycloakClientBundle\Exception;
 
 class PropertyDoesNotExistException extends \Exception
 {

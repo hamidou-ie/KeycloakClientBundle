@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Service;
+namespace HamidouIe\KeycloakClientBundle\Service;
 
 use GuzzleHttp\ClientInterface as HttpClientInterface;
-use Hamikod\KeycloakClientBundle\Exception\KeycloakAuthenticationException;
-use Hamikod\KeycloakClientBundle\Provider\KeycloakAdminClient;
-use Hamikod\KeycloakClientBundle\Representation\Collection\Collection;
-use Hamikod\KeycloakClientBundle\Representation\Collection\RoleCollection;
-use Hamikod\KeycloakClientBundle\Representation\Representation;
-use Hamikod\KeycloakClientBundle\Serializer\Serializer;
-use Hamikod\KeycloakClientBundle\Token\AccessToken;
+use HamidouIe\KeycloakClientBundle\Exception\KeycloakAuthenticationException;
+use HamidouIe\KeycloakClientBundle\Provider\KeycloakAdminClient;
+use HamidouIe\KeycloakClientBundle\Representation\Collection\Collection;
+use HamidouIe\KeycloakClientBundle\Representation\Collection\RoleCollection;
+use HamidouIe\KeycloakClientBundle\Representation\Representation;
+use HamidouIe\KeycloakClientBundle\Serializer\Serializer;
+use HamidouIe\KeycloakClientBundle\Token\AccessToken;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Encoder\JsonDecode;

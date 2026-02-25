@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Representation;
+namespace HamidouIe\KeycloakClientBundle\Representation;
 
-use Hamikod\KeycloakClientBundle\Representation\Collection\ProtocolMapperCollection;
-use Hamikod\KeycloakClientBundle\Representation\Type\Map;
+use HamidouIe\KeycloakClientBundle\Representation\Collection\ProtocolMapperCollection;
+use HamidouIe\KeycloakClientBundle\Representation\Type\Map;
 
 final class ClientRepresentation extends Representation
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Serializer;
+namespace HamidouIe\KeycloakClientBundle\Serializer;
 
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;

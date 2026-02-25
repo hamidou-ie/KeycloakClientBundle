@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Security\EntryPoint;
+namespace HamidouIe\KeycloakClientBundle\Security\EntryPoint;
 
-use Hamikod\KeycloakClientBundle\DTO\KeycloakAuthorizationCodeEnum;
+use HamidouIe\KeycloakClientBundle\DTO\KeycloakAuthorizationCodeEnum;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;

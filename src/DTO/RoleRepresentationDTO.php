@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\DTO;
+namespace HamidouIe\KeycloakClientBundle\DTO;
 
 class RoleRepresentationDTO
 {

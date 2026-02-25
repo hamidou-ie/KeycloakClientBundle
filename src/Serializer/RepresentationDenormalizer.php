@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Serializer;
+namespace HamidouIe\KeycloakClientBundle\Serializer;
 
-use Hamikod\KeycloakClientBundle\Representation\Collection\Collection;
-use Hamikod\KeycloakClientBundle\Representation\Representation;
+use HamidouIe\KeycloakClientBundle\Representation\Collection\Collection;
+use HamidouIe\KeycloakClientBundle\Representation\Representation;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
 final readonly class RepresentationDenormalizer implements DenormalizerInterface

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Serializer;
+namespace HamidouIe\KeycloakClientBundle\Serializer;
 
-use Hamikod\KeycloakClientBundle\Annotation\Since;
-use Hamikod\KeycloakClientBundle\Annotation\Until;
-use Hamikod\KeycloakClientBundle\Representation\Representation;
+use HamidouIe\KeycloakClientBundle\Annotation\Since;
+use HamidouIe\KeycloakClientBundle\Annotation\Until;
+use HamidouIe\KeycloakClientBundle\Representation\Representation;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 final class AttributeNormalizer implements NormalizerInterface

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Representation;
+namespace HamidouIe\KeycloakClientBundle\Representation;
 
-use Hamikod\KeycloakClientBundle\Representation\Collection\CredentialCollection;
-use Hamikod\KeycloakClientBundle\Representation\Collection\UserConsentCollection;
-use Hamikod\KeycloakClientBundle\Representation\Type\Map;
+use HamidouIe\KeycloakClientBundle\Representation\Collection\CredentialCollection;
+use HamidouIe\KeycloakClientBundle\Representation\Collection\UserConsentCollection;
+use HamidouIe\KeycloakClientBundle\Representation\Type\Map;
 
 final class UserRepresentation extends Representation
 {

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Security\Authenticator;
+namespace HamidouIe\KeycloakClientBundle\Security\Authenticator;
 
 use GuzzleHttp\Exception\ClientException;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
-use Hamikod\KeycloakClientBundle\DTO\KeycloakAuthorizationCodeEnum;
-use Hamikod\KeycloakClientBundle\Interface\IamClientInterface;
-use Hamikod\KeycloakClientBundle\Security\User\KeycloakUserProvider;
+use HamidouIe\KeycloakClientBundle\DTO\KeycloakAuthorizationCodeEnum;
+use HamidouIe\KeycloakClientBundle\Interface\IamClientInterface;
+use HamidouIe\KeycloakClientBundle\Security\User\KeycloakUserProvider;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

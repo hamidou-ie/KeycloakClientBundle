@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Tests\Provider;
+namespace HamidouIe\KeycloakClientBundle\Tests\Provider;
 
 use Firebase\JWT\JWT;
 use GuzzleHttp\ClientInterface;
 use League\OAuth2\Client\Tool\QueryBuilderTrait;
-use Hamikod\KeycloakClientBundle\Provider\KeycloakClient;
+use HamidouIe\KeycloakClientBundle\Provider\KeycloakClient;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;

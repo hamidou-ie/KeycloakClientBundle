@@ -1,4 +1,4 @@
 security:
     providers:
         mainick_keycloak_user_provider:
-            id: Hamikod\KeycloakClientBundle\Security\User\KeycloakUserProvider
+            id: HamidouIe\KeycloakClientBundle\Security\User\KeycloakUserProvider

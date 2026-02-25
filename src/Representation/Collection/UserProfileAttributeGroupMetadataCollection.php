@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Representation\Collection;
+namespace HamidouIe\KeycloakClientBundle\Representation\Collection;
 
-use Hamikod\KeycloakClientBundle\Representation\UserProfileAttributeGroupMetadata;
+use HamidouIe\KeycloakClientBundle\Representation\UserProfileAttributeGroupMetadata;
 
 /**
  * @extends Collection<UserProfileAttributeGroupMetadata>

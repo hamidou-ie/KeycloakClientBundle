@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Tests\Security;
+namespace HamidouIe\KeycloakClientBundle\Tests\Security;
 
 use Firebase\JWT\JWT;
-use Hamikod\KeycloakClientBundle\DTO\KeycloakAuthorizationCodeEnum;
-use Hamikod\KeycloakClientBundle\Interface\AccessTokenInterface;
-use Hamikod\KeycloakClientBundle\Provider\KeycloakClient;
-use Hamikod\KeycloakClientBundle\Security\Authenticator\KeycloakAuthenticator;
-use Hamikod\KeycloakClientBundle\Security\User\KeycloakUserProvider;
-use Hamikod\KeycloakClientBundle\Token\KeycloakResourceOwner;
+use HamidouIe\KeycloakClientBundle\DTO\KeycloakAuthorizationCodeEnum;
+use HamidouIe\KeycloakClientBundle\Interface\AccessTokenInterface;
+use HamidouIe\KeycloakClientBundle\Provider\KeycloakClient;
+use HamidouIe\KeycloakClientBundle\Security\Authenticator\KeycloakAuthenticator;
+use HamidouIe\KeycloakClientBundle\Security\User\KeycloakUserProvider;
+use HamidouIe\KeycloakClientBundle\Token\KeycloakResourceOwner;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;

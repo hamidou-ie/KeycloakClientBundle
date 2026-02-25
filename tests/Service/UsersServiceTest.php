@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Tests\Service;
+namespace HamidouIe\KeycloakClientBundle\Tests\Service;
 
 use GuzzleHttp\ClientInterface;
-use Hamikod\KeycloakClientBundle\Provider\KeycloakAdminClient;
-use Hamikod\KeycloakClientBundle\Representation\Collection\GroupCollection;
-use Hamikod\KeycloakClientBundle\Representation\Collection\RoleCollection;
-use Hamikod\KeycloakClientBundle\Representation\Collection\UserCollection;
-use Hamikod\KeycloakClientBundle\Representation\Collection\UserSessionCollection;
-use Hamikod\KeycloakClientBundle\Representation\GroupRepresentation;
-use Hamikod\KeycloakClientBundle\Representation\RoleRepresentation;
-use Hamikod\KeycloakClientBundle\Representation\UPConfig;
-use Hamikod\KeycloakClientBundle\Representation\UserProfileMetadata;
-use Hamikod\KeycloakClientBundle\Representation\UserRepresentation;
-use Hamikod\KeycloakClientBundle\Representation\UserSessionRepresentation;
-use Hamikod\KeycloakClientBundle\Serializer\Serializer;
-use Hamikod\KeycloakClientBundle\Service\Criteria;
-use Hamikod\KeycloakClientBundle\Service\UsersService;
-use Hamikod\KeycloakClientBundle\Token\AccessToken;
+use HamidouIe\KeycloakClientBundle\Provider\KeycloakAdminClient;
+use HamidouIe\KeycloakClientBundle\Representation\Collection\GroupCollection;
+use HamidouIe\KeycloakClientBundle\Representation\Collection\RoleCollection;
+use HamidouIe\KeycloakClientBundle\Representation\Collection\UserCollection;
+use HamidouIe\KeycloakClientBundle\Representation\Collection\UserSessionCollection;
+use HamidouIe\KeycloakClientBundle\Representation\GroupRepresentation;
+use HamidouIe\KeycloakClientBundle\Representation\RoleRepresentation;
+use HamidouIe\KeycloakClientBundle\Representation\UPConfig;
+use HamidouIe\KeycloakClientBundle\Representation\UserProfileMetadata;
+use HamidouIe\KeycloakClientBundle\Representation\UserRepresentation;
+use HamidouIe\KeycloakClientBundle\Representation\UserSessionRepresentation;
+use HamidouIe\KeycloakClientBundle\Serializer\Serializer;
+use HamidouIe\KeycloakClientBundle\Service\Criteria;
+use HamidouIe\KeycloakClientBundle\Service\UsersService;
+use HamidouIe\KeycloakClientBundle\Token\AccessToken;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;

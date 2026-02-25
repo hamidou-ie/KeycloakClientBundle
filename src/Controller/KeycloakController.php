@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Controller;
+namespace HamidouIe\KeycloakClientBundle\Controller;
 
-use Hamikod\KeycloakClientBundle\DTO\KeycloakAuthorizationCodeEnum;
-use Hamikod\KeycloakClientBundle\Interface\IamClientInterface;
+use HamidouIe\KeycloakClientBundle\DTO\KeycloakAuthorizationCodeEnum;
+use HamidouIe\KeycloakClientBundle\Interface\IamClientInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

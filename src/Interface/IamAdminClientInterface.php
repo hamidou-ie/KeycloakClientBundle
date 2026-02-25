@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Interface;
+namespace HamidouIe\KeycloakClientBundle\Interface;
 
-use Hamikod\KeycloakClientBundle\Service\ClientsService;
-use Hamikod\KeycloakClientBundle\Service\GroupsService;
-use Hamikod\KeycloakClientBundle\Service\RealmsService;
-use Hamikod\KeycloakClientBundle\Service\RolesService;
-use Hamikod\KeycloakClientBundle\Service\UsersService;
+use HamidouIe\KeycloakClientBundle\Service\ClientsService;
+use HamidouIe\KeycloakClientBundle\Service\GroupsService;
+use HamidouIe\KeycloakClientBundle\Service\RealmsService;
+use HamidouIe\KeycloakClientBundle\Service\RolesService;
+use HamidouIe\KeycloakClientBundle\Service\UsersService;
 
 interface IamAdminClientInterface
 {

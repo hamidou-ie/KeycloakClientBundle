@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Provider;
+namespace HamidouIe\KeycloakClientBundle\Provider;
 
 use GuzzleHttp\Client;
-use Hamikod\KeycloakClientBundle\Interface\AccessTokenInterface;
-use Hamikod\KeycloakClientBundle\Interface\IamAdminClientInterface;
-use Hamikod\KeycloakClientBundle\Service\ClientsService;
-use Hamikod\KeycloakClientBundle\Service\GroupsService;
-use Hamikod\KeycloakClientBundle\Service\RealmsService;
-use Hamikod\KeycloakClientBundle\Service\RolesService;
-use Hamikod\KeycloakClientBundle\Service\UsersService;
+use HamidouIe\KeycloakClientBundle\Interface\AccessTokenInterface;
+use HamidouIe\KeycloakClientBundle\Interface\IamAdminClientInterface;
+use HamidouIe\KeycloakClientBundle\Service\ClientsService;
+use HamidouIe\KeycloakClientBundle\Service\GroupsService;
+use HamidouIe\KeycloakClientBundle\Service\RealmsService;
+use HamidouIe\KeycloakClientBundle\Service\RolesService;
+use HamidouIe\KeycloakClientBundle\Service\UsersService;
 use Psr\Log\LoggerInterface;
 use Stevenmaguire\OAuth2\Client\Provider\Keycloak;
 

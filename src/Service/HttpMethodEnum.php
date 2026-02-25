@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Service;
+namespace HamidouIe\KeycloakClientBundle\Service;
 
 enum HttpMethodEnum: string
 {

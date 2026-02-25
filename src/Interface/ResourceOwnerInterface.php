@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Hamikod\KeycloakClientBundle\Interface;
+namespace HamidouIe\KeycloakClientBundle\Interface;
 
 interface ResourceOwnerInterface
 {
