@@ -11,6 +11,7 @@ use Hamikod\KeycloakClientBundle\Token\JWKSTokenDecoder;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\StreamInterface;
 
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class JWKSTokenDecoderTest extends TestCase
 {
     public function testConstructorValidatesBaseUrl(): void

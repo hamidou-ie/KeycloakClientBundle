@@ -32,6 +32,7 @@ class MyController
     }
 }
 
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class TokenAuthListenerTest extends TestCase
 {
     use QueryBuilderTrait;

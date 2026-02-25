@@ -27,6 +27,7 @@ use Psr\Http\Message\StreamInterface;
 use Psr\Log\LoggerInterface;
 use Stevenmaguire\OAuth2\Client\Provider\Keycloak;
 
+#[\PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations]
 class UsersServiceTest extends TestCase
 {
     private UsersService $usersService;

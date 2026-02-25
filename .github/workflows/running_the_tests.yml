@@ -38,6 +38,6 @@ jobs:
           ${{ runner.os }}-php-${{ matrix.php-version }}-
           ${{ runner.os }}-php-
     - name: Install Dependencies
-      run: composer update --no-interaction --prefer-dist --no-audit
+      run: composer update --no-interaction --prefer-dist
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: vendor/bin/phpunit
