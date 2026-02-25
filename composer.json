@@ -19,6 +19,7 @@
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^3.93",
+    "doctrine/orm": "^3.6",
     "phpunit/phpunit": "^12.5",
     "mockery/mockery": "^1.6",
     "phpstan/phpstan": "^2.1",

@@ -137,6 +137,16 @@ Matching strategy:
 
 By default, roles from the token are also synchronized into `user.roles`.
 
+If you want to sync **only** the roles for your configured client (`resource_access[{client_id}].roles`), set:
+
+```yaml
+hamidou_ie_keycloak_client:
+    oidc:
+        doctrine_user_provider:
+            enabled: true
+            roles_source: client
+```
+
 ### Get the Keycloak client
 
 You can get the Keycloak client by injecting the `HamidouIe\KeycloakClientBundle\Interface\IamClientInterface`

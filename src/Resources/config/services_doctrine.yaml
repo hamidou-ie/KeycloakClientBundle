@@ -17,4 +17,5 @@ services:
             string $lastnameClaim: '%hamidou_ie_keycloak_client.oidc.doctrine_user_provider.lastname_claim%'
             string $dnPrefix: '%hamidou_ie_keycloak_client.oidc.doctrine_user_provider.dn_prefix%'
             bool $syncRoles: '%hamidou_ie_keycloak_client.oidc.doctrine_user_provider.sync_roles%'
+            string $rolesSource: '%hamidou_ie_keycloak_client.oidc.doctrine_user_provider.roles_source%'
             string $clientId: '%hamidou_ie_keycloak_client.oidc.doctrine_user_provider.client_id%'

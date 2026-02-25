@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace HamidouIe\KeycloakClientBundle\Security\User;
 
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\AttributesBasedUserProviderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -21,8 +22,17 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * 1) Prefer stable Keycloak subject: {dnPrefix}{sub} stored in dnField (default: "dn").
  * 2) Fallback to emailField (default: "email").
  */
+/**
+ * @implements AttributesBasedUserProviderInterface<UserInterface>
+ */
 final class DoctrineOidcUserProvider implements AttributesBasedUserProviderInterface
 {
+    private const ROLES_SOURCE_REALM_AND_CLIENT = 'realm_and_client';
+    private const ROLES_SOURCE_CLIENT_ONLY = 'client';
+
+    /**
+     * @param class-string<UserInterface> $userClass
+     */
     public function __construct(
         private readonly EntityManagerInterface $entityManager,
         private readonly string $userClass,
@@ -36,6 +46,7 @@ final class DoctrineOidcUserProvider implements AttributesBasedUserProviderInter
         private readonly string $lastnameClaim = 'family_name',
         private readonly string $dnPrefix = 'oidc:',
         private readonly bool $syncRoles = true,
+        private readonly string $rolesSource = self::ROLES_SOURCE_REALM_AND_CLIENT,
     ) {
     }
 
@@ -44,6 +55,7 @@ final class DoctrineOidcUserProvider implements AttributesBasedUserProviderInter
      */
     public function loadUserByIdentifier(string $identifier, array $attributes = []): UserInterface
     {
+        /** @var EntityRepository<UserInterface> $repo */
         $repo = $this->entityManager->getRepository($this->userClass);
 
         $emailClaim = $this->getStringClaim($attributes, $this->emailClaim);
@@ -75,10 +87,12 @@ final class DoctrineOidcUserProvider implements AttributesBasedUserProviderInter
         $changed = false;
 
         if (!$user instanceof UserInterface) {
-            $user = new ($this->userClass)();
-            if (!$user instanceof UserInterface) {
+            // @phpstan-ignore-next-line (runtime safety, config may still be wrong)
+            if (!is_a($this->userClass, UserInterface::class, true)) {
                 throw new UnsupportedUserException(sprintf('Configured user_class "%s" must implement %s.', $this->userClass, UserInterface::class));
             }
+
+            $user = new ($this->userClass)();
 
             $isNew = true;
 
@@ -119,8 +133,18 @@ final class DoctrineOidcUserProvider implements AttributesBasedUserProviderInter
         if ($this->syncRoles) {
             $roles = $this->extractRoles($attributes);
             if ($roles !== []) {
-                $this->tryCallSetter($user, 'setRoles', $roles);
-                $changed = true;
+                $currentRoles = [];
+                try {
+                    $currentRoles = $user->getRoles();
+                } catch (\Throwable) {
+                    $currentRoles = [];
+                }
+
+                $normalizedCurrent = $this->normalizeRoleList($currentRoles);
+                if ($normalizedCurrent !== $roles) {
+                    $this->tryCallSetter($user, 'setRoles', $roles);
+                    $changed = true;
+                }
             }
         }
 
@@ -134,13 +158,15 @@ final class DoctrineOidcUserProvider implements AttributesBasedUserProviderInter
 
     public function refreshUser(UserInterface $user): UserInterface
     {
-        if (!$user instanceof UserInterface) {
+        if (!$this->supportsClass($user::class)) {
             throw new UnsupportedUserException(sprintf('Invalid user class "%s".', $user::class));
         }
 
         if (method_exists($user, 'getId')) {
             $id = $user->getId();
-            $reloaded = $this->entityManager->getRepository($this->userClass)->find($id);
+            /** @var EntityRepository<UserInterface> $repo */
+            $repo = $this->entityManager->getRepository($this->userClass);
+            $reloaded = $repo->find($id);
 
             return $reloaded instanceof UserInterface ? $reloaded : $user;
         }
@@ -207,26 +233,94 @@ final class DoctrineOidcUserProvider implements AttributesBasedUserProviderInter
     {
         $roles = [];
 
-        if (isset($attributes['realm_access']['roles']) && is_array($attributes['realm_access']['roles'])) {
-            foreach ($attributes['realm_access']['roles'] as $role) {
-                if (is_string($role) && $role !== '') {
-                    $roles[] = $this->normalizeRoleName($role);
-                }
-            }
+        if ($this->rolesSource !== self::ROLES_SOURCE_CLIENT_ONLY) {
+            $roles = array_merge($roles, $this->extractRealmRoles($attributes));
         }
 
-        if ($this->clientId !== '' && isset($attributes['resource_access'][$this->clientId]['roles']) && is_array($attributes['resource_access'][$this->clientId]['roles'])) {
-            foreach ($attributes['resource_access'][$this->clientId]['roles'] as $role) {
-                if (is_string($role) && $role !== '') {
-                    $roles[] = $this->normalizeRoleName($role);
-                }
-            }
+        $roles = array_merge($roles, $this->extractClientRoles($attributes));
+
+        return $this->normalizeRoleList($roles);
+    }
+
+    /**
+     * @param array<string, mixed> $attributes
+     * @return list<string>
+     */
+    private function extractRealmRoles(array $attributes): array
+    {
+        $roles = [];
+
+        if (!isset($attributes['realm_access']['roles']) || !is_array($attributes['realm_access']['roles'])) {
+            return [];
         }
 
-        $roles = array_values(array_unique($roles));
-        sort($roles);
+        foreach ($attributes['realm_access']['roles'] as $role) {
+            if (is_string($role) && $role !== '') {
+                $roles[] = $this->normalizeRoleName($role);
+            }
+        }
 
         return $roles;
+    }
+
+    /**
+     * @param array<string, mixed> $attributes
+     * @return list<string>
+     */
+    private function extractClientRoles(array $attributes): array
+    {
+        $resourceAccess = $attributes['resource_access'] ?? null;
+        if (!is_array($resourceAccess)) {
+            return [];
+        }
+
+        // When roles_source=client, we only want the roles for this client.
+        // When roles_source=realm_and_client, we still include the client roles.
+        $clientKeys = [];
+        if ($this->clientId !== '') {
+            $clientKeys[] = $this->clientId;
+        }
+
+        // Fallback: some tokens expose the current client as "azp" (authorized party).
+        $azp = $attributes['azp'] ?? null;
+        if (is_string($azp) && $azp !== '' && $azp !== $this->clientId) {
+            $clientKeys[] = $azp;
+        }
+
+        $roles = [];
+        foreach ($clientKeys as $clientKey) {
+            if (!isset($resourceAccess[$clientKey]['roles']) || !is_array($resourceAccess[$clientKey]['roles'])) {
+                continue;
+            }
+            foreach ($resourceAccess[$clientKey]['roles'] as $role) {
+                if (is_string($role) && $role !== '') {
+                    $roles[] = $this->normalizeRoleName($role);
+                }
+            }
+        }
+
+        return $roles;
+    }
+
+    /**
+        * @param array<int, mixed> $roles
+     * @return list<string>
+     */
+    private function normalizeRoleList(array $roles): array
+    {
+        $normalized = [];
+
+        foreach ($roles as $role) {
+            if (!is_string($role) || $role === '') {
+                continue;
+            }
+            $normalized[] = $this->normalizeRoleName($role);
+        }
+
+        $normalized = array_values(array_unique($normalized));
+        sort($normalized);
+
+        return $normalized;
     }
 
     private function normalizeRoleName(string $role): string
