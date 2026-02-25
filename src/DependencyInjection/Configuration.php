@@ -11,19 +11,15 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('mainick_keycloak_client');
+        $treeBuilder = new TreeBuilder('hamidou_ie_keycloak_client');
         $rootNode = $treeBuilder->getRootNode();
-        $adminCliChildren = $rootNode
-            ->children()
-            ->arrayNode('admin_cli')
-            ->children();
 
         $rootNode
             ->children()
             ->arrayNode('keycloak')
             ->children()
             ->booleanNode('verify_ssl')
-            ->isRequired()
+            ->defaultTrue()
             ->end()
             ->scalarNode('base_url')
             ->isRequired()
@@ -44,7 +40,7 @@ class Configuration implements ConfigurationInterface
             ->defaultNull()
             ->end()
             ->scalarNode('encryption_algorithm')
-            ->defaultNull()
+            ->defaultValue('JWKS')
             ->end()
             ->scalarNode('encryption_key')
             ->defaultNull()
@@ -66,15 +62,6 @@ class Configuration implements ConfigurationInterface
             ->end()
             ->end()
             ->end()
-            ->validate()
-            ->ifTrue(function ($v) {
-                return empty($v['encryption_key'])
-                    && empty($v['encryption_key_path']);
-            })
-            ->thenInvalid(
-                'At least one of "encryption_key" or "encryption_key_path" must be provided.',
-            )
-            ->end()
             ->end()
             ->arrayNode('security')
             ->info(
@@ -94,23 +81,35 @@ class Configuration implements ConfigurationInterface
             ->canBeEnabled()
             ->children()
             ->scalarNode('realm')
-            ->isRequired()
-            ->cannotBeEmpty()
+            ->defaultNull()
             ->end()
             ->scalarNode('client_id')
-            ->isRequired()
-            ->cannotBeEmpty()
+            ->defaultNull()
             ->end()
             ->scalarNode('username')
-            ->isRequired()
-            ->cannotBeEmpty()
+            ->defaultNull()
             ->end()
             ->scalarNode('password')
-            ->isRequired()
-            ->cannotBeEmpty()
+            ->defaultNull()
             ->end()
             ->end()
             ->end()
+            ->end();
+
+        $rootNode
+            ->validate()
+                ->ifTrue(static function (array $v): bool {
+                    $adminCli = $v['admin_cli'] ?? [];
+                    if (!($adminCli['enabled'] ?? false)) {
+                        return false;
+                    }
+
+                    return empty($adminCli['realm'])
+                        || empty($adminCli['client_id'])
+                        || empty($adminCli['username'])
+                        || empty($adminCli['password']);
+                })
+                ->thenInvalid('When admin_cli is enabled, you must configure realm, client_id, username and password.')
             ->end();
 
         return $treeBuilder;

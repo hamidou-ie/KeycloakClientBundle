@@ -13,13 +13,13 @@ It also includes a listener to verify the token on every request.
 ## Configuration
 
 Before installing this package, you need to configure it manually.
-You can do this by creating a `hamidou-ie_keycloak_client.yaml` file in the `config/packages` directory of your project
+You can do this by creating a `hamidou_ie_keycloak_client.yaml` file in the `config/packages` directory of your project
 and adding the following configuration:
 
 ```yaml
-# config/packages/hamidou-ie_keycloak_client.yaml
+# config/packages/hamidou_ie_keycloak_client.yaml
 
-hamidou-ie_keycloak_client:
+hamidou_ie_keycloak_client:
   keycloak:
     verify_ssl: '%env(bool:IAM_VERIFY_SSL)%'
     base_url: '%env(IAM_BASE_URL)%'
@@ -257,8 +257,8 @@ To use the `KeycloakClientBundle` with Symfony's security component, you need to
 First you need to add a new section to the bundle configuration file:
 
 ```yaml
-# config/packages/hamidou-ie_keycloak_client.yaml
-hamidou-ie_keycloak_client:
+# config/packages/hamidou_ie_keycloak_client.yaml
+hamidou_ie_keycloak_client:
   security:
     default_target_route_name: '%env(TARGET_ROUTE_NAME)%'
 ```
@@ -278,9 +278,9 @@ TARGET_ROUTE_NAME=app_home
 Below is the complete configuration file:
 
 ```yaml
-# config/packages/hamidou-ie_keycloak_client.yaml
+# config/packages/hamidou_ie_keycloak_client.yaml
 
-hamidou-ie_keycloak_client:
+hamidou_ie_keycloak_client:
   keycloak:
     verify_ssl: '%env(bool:IAM_VERIFY_SSL)%'
     base_url: '%env(IAM_BASE_URL)%'
@@ -301,7 +301,7 @@ hamidou-ie_keycloak_client:
 Create a new file in ```config/routes/``` to load pre configured bundle routes.
 
 ```yaml
-# config/routes/hamidou-ie_keycloak_security.yaml
+# config/routes/hamidou_ie_keycloak_security.yaml
 hamidou-ie_keycloak_security_auth_connect:
   path:       /auth/keycloak/connect
   controller: HamidouIe\KeycloakClientBundle\Controller\KeycloakController::connect
@@ -323,7 +323,7 @@ You can do this by adding the following configuration to your `config/packages/s
 ```yaml
 # config/packages/security.yaml
 providers:
-  hamidou-ie_keycloak_user_provider:
+    hamidou_ie_keycloak_user_provider:
     id: HamidouIe\KeycloakClientBundle\Security\User\KeycloakUserProvider
 ```
 

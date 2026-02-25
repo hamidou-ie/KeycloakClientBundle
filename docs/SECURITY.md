@@ -21,9 +21,9 @@ L'URL base di Keycloak (`base_url`) viene validato nel costruttore di `JWKSToken
 È possibile configurare una whitelist di domini autorizzati per le richieste JWKS:
 
 ```yaml
-# config/packages/mainick_keycloak_client.yaml
+# config/packages/hamidou_ie_keycloak_client.yaml
 
-mainick_keycloak_client:
+hamidou_ie_keycloak_client:
   keycloak:
     base_url: '%env(IAM_BASE_URL)%'
     realm: '%env(IAM_REALM)%'
@@ -92,7 +92,7 @@ I seguenti pattern di host sono automaticamente bloccati:
 ### Esempio di Configurazione Sicura
 
 ```yaml
-mainick_keycloak_client:
+hamidou_ie_keycloak_client:
   keycloak:
     verify_ssl: true
     base_url: 'https://keycloak.example.com'
