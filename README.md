@@ -83,6 +83,62 @@ By configuring the package before installation, you ensure that it will be ready
 
 ## Usage
 
+### Symfony 8 stateless API (access_token OIDC)
+
+If your application uses Symfony 8 `security.access_token` with an OIDC token handler, you **do not need** extra `KEYCLOAK_*` environment variables.
+This bundle derives the required values from `IAM_BASE_URL`, `IAM_REALM`, and `IAM_CLIENT_ID` and exposes them as container parameters:
+
+- `hamidou_ie_keycloak_client.oidc.issuer` (default: `{IAM_BASE_URL}/realms/{IAM_REALM}`)
+- `hamidou_ie_keycloak_client.oidc.discovery_base_uri` (default: `issuer + "/"`)
+- `hamidou_ie_keycloak_client.oidc.client_id` (default: `IAM_CLIENT_ID`)
+- `hamidou_ie_keycloak_client.oidc.audience` (default: `IAM_CLIENT_ID`)
+
+Example `security.yaml` snippet:
+
+```yaml
+security:
+    providers:
+        oidc_user_provider:
+            # Use either your own user provider service or the optional one from this bundle (see below)
+            id: HamidouIe\KeycloakClientBundle\Security\User\DoctrineOidcUserProvider
+
+    firewalls:
+        main:
+            stateless: true
+            provider: oidc_user_provider
+            access_token:
+                token_handler:
+                    oidc:
+                        claim: email
+                        algorithms: [ 'RS256' ]
+                        audience: '%hamidou_ie_keycloak_client.oidc.audience%'
+                        issuers: [ '%hamidou_ie_keycloak_client.oidc.issuer%' ]
+                        discovery:
+                            base_uri: '%hamidou_ie_keycloak_client.oidc.discovery_base_uri%'
+                            cache:
+                                id: cache.app
+```
+
+### Optional: Doctrine OIDC user provider (sync local User)
+
+To keep a centralized `user` table and synchronize basic profile fields from Keycloak (`firstname`, `lastname`, `email`, `username`), enable the provider:
+
+```yaml
+# config/packages/hamidou_ie_keycloak_client.yaml
+hamidou_ie_keycloak_client:
+    oidc:
+        doctrine_user_provider:
+            enabled: true
+            # Defaults work for Api\\Entity\\User with dn/email fields and Keycloak standard claims.
+            # user_class: 'Api\\Entity\\User'
+```
+
+Matching strategy:
+- Prefer stable Keycloak subject: `dn = oidc:{sub}`
+- Fallback to `email`
+
+By default, roles from the token are also synchronized into `user.roles`.
+
 ### Get the Keycloak client
 
 You can get the Keycloak client by injecting the `HamidouIe\KeycloakClientBundle\Interface\IamClientInterface`

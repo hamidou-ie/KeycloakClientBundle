@@ -1,0 +1,20 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    HamidouIe\KeycloakClientBundle\Security\User\DoctrineOidcUserProvider:
+        public: true
+        bind:
+            string $userClass: '%hamidou_ie_keycloak_client.oidc.doctrine_user_provider.user_class%'
+            string $dnField: '%hamidou_ie_keycloak_client.oidc.doctrine_user_provider.dn_field%'
+            string $emailField: '%hamidou_ie_keycloak_client.oidc.doctrine_user_provider.email_field%'
+            string $subjectClaim: '%hamidou_ie_keycloak_client.oidc.doctrine_user_provider.subject_claim%'
+            string $emailClaim: '%hamidou_ie_keycloak_client.oidc.doctrine_user_provider.email_claim%'
+            string $usernameClaim: '%hamidou_ie_keycloak_client.oidc.doctrine_user_provider.username_claim%'
+            string $firstnameClaim: '%hamidou_ie_keycloak_client.oidc.doctrine_user_provider.firstname_claim%'
+            string $lastnameClaim: '%hamidou_ie_keycloak_client.oidc.doctrine_user_provider.lastname_claim%'
+            string $dnPrefix: '%hamidou_ie_keycloak_client.oidc.doctrine_user_provider.dn_prefix%'
+            bool $syncRoles: '%hamidou_ie_keycloak_client.oidc.doctrine_user_provider.sync_roles%'
+            string $clientId: '%hamidou_ie_keycloak_client.oidc.doctrine_user_provider.client_id%'
