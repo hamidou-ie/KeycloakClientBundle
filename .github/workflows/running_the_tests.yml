@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['8.2', '8.3', '8.4', '8.5']
+        php-version: ['8.4', '8.5']
 
     steps:
     - uses: shivammathur/setup-php@v2
@@ -38,6 +38,6 @@ jobs:
           ${{ runner.os }}-php-${{ matrix.php-version }}-
           ${{ runner.os }}-php-
     - name: Install Dependencies
-      run: composer update --no-interaction --prefer-dist
+      run: composer update --no-interaction --prefer-dist --no-audit
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: vendor/bin/phpunit
