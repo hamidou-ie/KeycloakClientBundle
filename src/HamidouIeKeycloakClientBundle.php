@@ -8,7 +8,7 @@ use HamidouIe\KeycloakClientBundle\DependencyInjection\HamidouIeKeycloakClientEx
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
-final class HamidouIeKeycloakClientBundle extends AbstractBundle
+class HamidouIeKeycloakClientBundle extends AbstractBundle
 {
     public function getPath(): string
     {
