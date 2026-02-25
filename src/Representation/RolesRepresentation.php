@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Representation;
+namespace Hamikod\KeycloakClientBundle\Representation;
 
-use Mainick\KeycloakClientBundle\Representation\Collection\RealmCollection;
-use Mainick\KeycloakClientBundle\Representation\Type\Map;
+use Hamikod\KeycloakClientBundle\Representation\Collection\RealmCollection;
+use Hamikod\KeycloakClientBundle\Representation\Type\Map;
 
 final class RolesRepresentation extends Representation
 {

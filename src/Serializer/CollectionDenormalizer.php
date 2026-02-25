@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Serializer;
+namespace Hamikod\KeycloakClientBundle\Serializer;
 
-use Mainick\KeycloakClientBundle\Representation\Collection\Collection;
-use Mainick\KeycloakClientBundle\Representation\Representation;
+use Hamikod\KeycloakClientBundle\Representation\Collection\Collection;
+use Hamikod\KeycloakClientBundle\Representation\Representation;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
 final readonly class CollectionDenormalizer implements DenormalizerInterface

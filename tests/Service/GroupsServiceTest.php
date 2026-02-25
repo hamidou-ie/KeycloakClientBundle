@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Tests\Service;
+namespace Hamikod\KeycloakClientBundle\Tests\Service;
 
 use GuzzleHttp\ClientInterface;
-use Mainick\KeycloakClientBundle\Provider\KeycloakAdminClient;
-use Mainick\KeycloakClientBundle\Representation\Collection\GroupCollection;
-use Mainick\KeycloakClientBundle\Representation\Collection\RoleCollection;
-use Mainick\KeycloakClientBundle\Representation\Collection\UserCollection;
-use Mainick\KeycloakClientBundle\Representation\GroupRepresentation;
-use Mainick\KeycloakClientBundle\Representation\RoleRepresentation;
-use Mainick\KeycloakClientBundle\Representation\UserRepresentation;
-use Mainick\KeycloakClientBundle\Serializer\Serializer;
-use Mainick\KeycloakClientBundle\Service\Criteria;
-use Mainick\KeycloakClientBundle\Service\GroupsService;
-use Mainick\KeycloakClientBundle\Token\AccessToken;
+use Hamikod\KeycloakClientBundle\Provider\KeycloakAdminClient;
+use Hamikod\KeycloakClientBundle\Representation\Collection\GroupCollection;
+use Hamikod\KeycloakClientBundle\Representation\Collection\RoleCollection;
+use Hamikod\KeycloakClientBundle\Representation\Collection\UserCollection;
+use Hamikod\KeycloakClientBundle\Representation\GroupRepresentation;
+use Hamikod\KeycloakClientBundle\Representation\RoleRepresentation;
+use Hamikod\KeycloakClientBundle\Representation\UserRepresentation;
+use Hamikod\KeycloakClientBundle\Serializer\Serializer;
+use Hamikod\KeycloakClientBundle\Service\Criteria;
+use Hamikod\KeycloakClientBundle\Service\GroupsService;
+use Hamikod\KeycloakClientBundle\Token\AccessToken;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;

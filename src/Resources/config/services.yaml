@@ -6,15 +6,15 @@ services:
         autoconfigure: true
         public: false
 
-    Mainick\KeycloakClientBundle\:
+    Hamikod\KeycloakClientBundle\:
         resource: '../../*'
         exclude: '../../{Entity,Migrations,Tests,Token/KeycloakResourceOwner.php,EventSubscriber/TokenAuthListener.php}'
 
-    Mainick\KeycloakClientBundle\Interface\IamClientInterface:
+    Hamikod\KeycloakClientBundle\Interface\IamClientInterface:
         public: true
-        alias: Mainick\KeycloakClientBundle\Provider\KeycloakClient
+        alias: Hamikod\KeycloakClientBundle\Provider\KeycloakClient
 
-    Mainick\KeycloakClientBundle\Provider\KeycloakClient:
+    Hamikod\KeycloakClientBundle\Provider\KeycloakClient:
         bind:
             bool $verify_ssl: '%mainick_keycloak_client.keycloak.verify_ssl%'
             string $base_url: '%mainick_keycloak_client.keycloak.base_url%'
@@ -27,7 +27,7 @@ services:
             string $encryption_key_path: '%mainick_keycloak_client.keycloak.encryption_key_path%'
             string $version: '%mainick_keycloak_client.keycloak.version%'
 
-    Mainick\KeycloakClientBundle\Provider\KeycloakAdminClient:
+    Hamikod\KeycloakClientBundle\Provider\KeycloakAdminClient:
         bind:
             bool $verify_ssl: '%mainick_keycloak_client.keycloak.verify_ssl%'
             string $base_url: '%mainick_keycloak_client.keycloak.base_url%'
@@ -37,23 +37,23 @@ services:
             string $admin_password: '%mainick_keycloak_client.admin_cli.password%'
             string $version: '%mainick_keycloak_client.keycloak.version%'
 
-    Mainick\KeycloakClientBundle\Controller\KeycloakController:
+    Hamikod\KeycloakClientBundle\Controller\KeycloakController:
         public: true
         bind:
             $defaultTargetRouteName: '%mainick_keycloak_client.security.default_target_route_name%'
         tags: [ 'controller.service_arguments' ]
 
-    Mainick\KeycloakClientBundle\Security\User\KeycloakUserProvider:
+    Hamikod\KeycloakClientBundle\Security\User\KeycloakUserProvider:
         public: true
 #        tags:
 #            - { name: mainick_keycloak_security.user_provider, alias: oauth }
 
-    Mainick\KeycloakClientBundle\EventSubscriber\ExceptionListener:
+    Hamikod\KeycloakClientBundle\EventSubscriber\ExceptionListener:
         public: true
         tags:
             - { name: kernel.event_listener, event: kernel.exception }
 
-    Mainick\KeycloakClientBundle\EventSubscriber\LogoutAuthListener:
+    Hamikod\KeycloakClientBundle\EventSubscriber\LogoutAuthListener:
         public: true
         arguments:
             $defaultTargetRouteName: '%mainick_keycloak_client.security.default_target_route_name%'
@@ -62,23 +62,23 @@ services:
 
     # Rimuovi questi normalizzatori dall'autowiring automatico per evitare
     # che Symfony provi a iniettare dipendenze circolari
-    Mainick\KeycloakClientBundle\Serializer\CollectionDenormalizer:
+    Hamikod\KeycloakClientBundle\Serializer\CollectionDenormalizer:
         autowire: false
         autoconfigure: false
         public: false
         # Non aggiungere tag
 
-    Mainick\KeycloakClientBundle\Serializer\AttributeNormalizer:
+    Hamikod\KeycloakClientBundle\Serializer\AttributeNormalizer:
         autowire: false
         autoconfigure: false
         public: false
         # Non aggiungere tag
 
-    Mainick\KeycloakClientBundle\Serializer\RepresentationDenormalizer:
+    Hamikod\KeycloakClientBundle\Serializer\RepresentationDenormalizer:
         autowire: false
         autoconfigure: false
         public: false
 
 
-#    Mainick\KeycloakClientBundle\Security\EntryPoint\KeycloakAuthenticationEntryPoint: ~
-#    Mainick\KeycloakClientBundle\Security\Authenticator\KeycloakAuthenticator: ~
+#    Hamikod\KeycloakClientBundle\Security\EntryPoint\KeycloakAuthenticationEntryPoint: ~
+#    Hamikod\KeycloakClientBundle\Security\Authenticator\KeycloakAuthenticator: ~

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Token;
+namespace Hamikod\KeycloakClientBundle\Token;
 
 use GuzzleHttp\ClientInterface;
-use Mainick\KeycloakClientBundle\Interface\TokenDecoderInterface;
+use Hamikod\KeycloakClientBundle\Interface\TokenDecoderInterface;
 
 class TokenDecoderFactory
 {

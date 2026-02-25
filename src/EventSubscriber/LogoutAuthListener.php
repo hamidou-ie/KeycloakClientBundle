@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\EventSubscriber;
+namespace Hamikod\KeycloakClientBundle\EventSubscriber;
 
-use Mainick\KeycloakClientBundle\Interface\IamClientInterface;
-use Mainick\KeycloakClientBundle\Token\KeycloakResourceOwner;
+use Hamikod\KeycloakClientBundle\Interface\IamClientInterface;
+use Hamikod\KeycloakClientBundle\Token\KeycloakResourceOwner;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;

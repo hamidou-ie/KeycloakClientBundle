@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Annotation;
+namespace Hamikod\KeycloakClientBundle\Annotation;
 
 #[\Attribute(\Attribute::TARGET_CLASS | \Attribute::TARGET_METHOD | \Attribute::TARGET_PROPERTY)]
 final readonly class Since

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Tests\EventSubscriber;
+namespace Hamikod\KeycloakClientBundle\Tests\EventSubscriber;
 
 use Firebase\JWT\JWT;
 use GuzzleHttp\ClientInterface;
 use League\OAuth2\Client\Tool\QueryBuilderTrait;
-use Mainick\KeycloakClientBundle\Annotation\ExcludeTokenValidationAttribute;
-use Mainick\KeycloakClientBundle\EventSubscriber\TokenAuthListener;
-use Mainick\KeycloakClientBundle\Interface\IamClientInterface;
-use Mainick\KeycloakClientBundle\Provider\KeycloakClient;
+use Hamikod\KeycloakClientBundle\Annotation\ExcludeTokenValidationAttribute;
+use Hamikod\KeycloakClientBundle\EventSubscriber\TokenAuthListener;
+use Hamikod\KeycloakClientBundle\Interface\IamClientInterface;
+use Hamikod\KeycloakClientBundle\Provider\KeycloakClient;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
@@ -203,7 +203,7 @@ class TokenAuthListenerTest extends TestCase
         // when
         // Create a mock controller method with ExcludeTokenValidationAttribute
         $controllerMethodWithAttribute =
-            "Mainick\KeycloakClientBundle\Tests\EventSubscriber\MyController::excludedRouteAction";
+            "Hamikod\KeycloakClientBundle\Tests\EventSubscriber\MyController::excludedRouteAction";
 
         // Mock the request for a route with ExcludeTokenValidationAttribute
         $request = new Request();

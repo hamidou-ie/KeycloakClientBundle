@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Tests\Service;
+namespace Hamikod\KeycloakClientBundle\Tests\Service;
 
 use GuzzleHttp\ClientInterface;
-use Mainick\KeycloakClientBundle\Provider\KeycloakAdminClient;
-use Mainick\KeycloakClientBundle\Representation\Collection\RealmCollection;
-use Mainick\KeycloakClientBundle\Representation\RealmRepresentation;
-use Mainick\KeycloakClientBundle\Serializer\Serializer;
-use Mainick\KeycloakClientBundle\Service\Criteria;
-use Mainick\KeycloakClientBundle\Service\RealmsService;
-use Mainick\KeycloakClientBundle\Token\AccessToken;
+use Hamikod\KeycloakClientBundle\Provider\KeycloakAdminClient;
+use Hamikod\KeycloakClientBundle\Representation\Collection\RealmCollection;
+use Hamikod\KeycloakClientBundle\Representation\RealmRepresentation;
+use Hamikod\KeycloakClientBundle\Serializer\Serializer;
+use Hamikod\KeycloakClientBundle\Service\Criteria;
+use Hamikod\KeycloakClientBundle\Service\RealmsService;
+use Hamikod\KeycloakClientBundle\Token\AccessToken;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;

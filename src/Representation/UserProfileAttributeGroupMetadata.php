@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Representation;
+namespace Hamikod\KeycloakClientBundle\Representation;
 
-use Mainick\KeycloakClientBundle\Representation\Type\Map;
+use Hamikod\KeycloakClientBundle\Representation\Type\Map;
 
 final class UserProfileAttributeGroupMetadata extends Representation
 {

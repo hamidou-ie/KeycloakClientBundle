@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Representation\Type;
+namespace Hamikod\KeycloakClientBundle\Representation\Type;
 
 /**
  * @template T

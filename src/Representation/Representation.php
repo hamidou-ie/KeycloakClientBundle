@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Representation;
+namespace Hamikod\KeycloakClientBundle\Representation;
 
-use Mainick\KeycloakClientBundle\Exception\PropertyDoesNotExistException;
+use Hamikod\KeycloakClientBundle\Exception\PropertyDoesNotExistException;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 
 abstract class Representation implements \JsonSerializable

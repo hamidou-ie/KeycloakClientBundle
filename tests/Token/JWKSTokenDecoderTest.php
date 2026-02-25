@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Tests\Token;
+namespace Hamikod\KeycloakClientBundle\Tests\Token;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Response;
-use Mainick\KeycloakClientBundle\Exception\TokenDecoderException;
-use Mainick\KeycloakClientBundle\Token\JWKSTokenDecoder;
+use Hamikod\KeycloakClientBundle\Exception\TokenDecoderException;
+use Hamikod\KeycloakClientBundle\Token\JWKSTokenDecoder;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\StreamInterface;
 

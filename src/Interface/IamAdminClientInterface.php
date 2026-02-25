@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Interface;
+namespace Hamikod\KeycloakClientBundle\Interface;
 
-use Mainick\KeycloakClientBundle\Service\ClientsService;
-use Mainick\KeycloakClientBundle\Service\GroupsService;
-use Mainick\KeycloakClientBundle\Service\RealmsService;
-use Mainick\KeycloakClientBundle\Service\RolesService;
-use Mainick\KeycloakClientBundle\Service\UsersService;
+use Hamikod\KeycloakClientBundle\Service\ClientsService;
+use Hamikod\KeycloakClientBundle\Service\GroupsService;
+use Hamikod\KeycloakClientBundle\Service\RealmsService;
+use Hamikod\KeycloakClientBundle\Service\RolesService;
+use Hamikod\KeycloakClientBundle\Service\UsersService;
 
 interface IamAdminClientInterface
 {

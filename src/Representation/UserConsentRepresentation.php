@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Representation;
+namespace Hamikod\KeycloakClientBundle\Representation;
 
 class UserConsentRepresentation extends Representation
 {

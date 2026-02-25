@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Security\User;
+namespace Hamikod\KeycloakClientBundle\Security\User;
 
-use Mainick\KeycloakClientBundle\Interface\AccessTokenInterface;
-use Mainick\KeycloakClientBundle\Interface\IamClientInterface;
-use Mainick\KeycloakClientBundle\Token\KeycloakResourceOwner;
+use Hamikod\KeycloakClientBundle\Interface\AccessTokenInterface;
+use Hamikod\KeycloakClientBundle\Interface\IamClientInterface;
+use Hamikod\KeycloakClientBundle\Token\KeycloakResourceOwner;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;

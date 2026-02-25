@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Service;
+namespace Hamikod\KeycloakClientBundle\Service;
 
-use Mainick\KeycloakClientBundle\Representation\Collection\GroupCollection;
-use Mainick\KeycloakClientBundle\Representation\Collection\RoleCollection;
-use Mainick\KeycloakClientBundle\Representation\Collection\UserCollection;
-use Mainick\KeycloakClientBundle\Representation\Collection\UserSessionCollection;
-use Mainick\KeycloakClientBundle\Representation\GroupRepresentation;
-use Mainick\KeycloakClientBundle\Representation\RoleRepresentation;
-use Mainick\KeycloakClientBundle\Representation\UPConfig;
-use Mainick\KeycloakClientBundle\Representation\UserProfileMetadata;
-use Mainick\KeycloakClientBundle\Representation\UserRepresentation;
-use Mainick\KeycloakClientBundle\Representation\UserSessionRepresentation;
+use Hamikod\KeycloakClientBundle\Representation\Collection\GroupCollection;
+use Hamikod\KeycloakClientBundle\Representation\Collection\RoleCollection;
+use Hamikod\KeycloakClientBundle\Representation\Collection\UserCollection;
+use Hamikod\KeycloakClientBundle\Representation\Collection\UserSessionCollection;
+use Hamikod\KeycloakClientBundle\Representation\GroupRepresentation;
+use Hamikod\KeycloakClientBundle\Representation\RoleRepresentation;
+use Hamikod\KeycloakClientBundle\Representation\UPConfig;
+use Hamikod\KeycloakClientBundle\Representation\UserProfileMetadata;
+use Hamikod\KeycloakClientBundle\Representation\UserRepresentation;
+use Hamikod\KeycloakClientBundle\Representation\UserSessionRepresentation;
 
 final class UsersService extends Service
 {

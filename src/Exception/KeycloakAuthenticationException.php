@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Exception;
+namespace Hamikod\KeycloakClientBundle\Exception;
 
 class KeycloakAuthenticationException extends \Exception
 {

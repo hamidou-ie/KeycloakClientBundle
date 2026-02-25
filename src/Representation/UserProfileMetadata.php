@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Representation;
+namespace Hamikod\KeycloakClientBundle\Representation;
 
-use Mainick\KeycloakClientBundle\Representation\Collection\UserProfileAttributeGroupMetadataCollection;
-use Mainick\KeycloakClientBundle\Representation\Collection\UserProfileAttributeMetadataCollection;
+use Hamikod\KeycloakClientBundle\Representation\Collection\UserProfileAttributeGroupMetadataCollection;
+use Hamikod\KeycloakClientBundle\Representation\Collection\UserProfileAttributeMetadataCollection;
 
 final class UserProfileMetadata extends Representation
 {

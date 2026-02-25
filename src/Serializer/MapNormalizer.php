@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Serializer;
+namespace Hamikod\KeycloakClientBundle\Serializer;
 
-use Mainick\KeycloakClientBundle\Representation\Type\Map;
+use Hamikod\KeycloakClientBundle\Representation\Type\Map;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 final class MapNormalizer implements NormalizerInterface

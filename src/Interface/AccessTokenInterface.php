@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Interface;
+namespace Hamikod\KeycloakClientBundle\Interface;
 
 interface AccessTokenInterface extends \JsonSerializable
 {

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Representation;
+namespace Hamikod\KeycloakClientBundle\Representation;
 
-use Mainick\KeycloakClientBundle\Annotation\Since;
-use Mainick\KeycloakClientBundle\Representation\Collection\ClientCollection;
-use Mainick\KeycloakClientBundle\Representation\Collection\ClientScopeCollection;
-use Mainick\KeycloakClientBundle\Representation\Collection\GroupCollection;
-use Mainick\KeycloakClientBundle\Representation\Collection\ProtocolMapperCollection;
-use Mainick\KeycloakClientBundle\Representation\Collection\UserCollection;
-use Mainick\KeycloakClientBundle\Representation\Type\Map;
+use Hamikod\KeycloakClientBundle\Annotation\Since;
+use Hamikod\KeycloakClientBundle\Representation\Collection\ClientCollection;
+use Hamikod\KeycloakClientBundle\Representation\Collection\ClientScopeCollection;
+use Hamikod\KeycloakClientBundle\Representation\Collection\GroupCollection;
+use Hamikod\KeycloakClientBundle\Representation\Collection\ProtocolMapperCollection;
+use Hamikod\KeycloakClientBundle\Representation\Collection\UserCollection;
+use Hamikod\KeycloakClientBundle\Representation\Type\Map;
 
 final class RealmRepresentation extends Representation
 {

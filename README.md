@@ -1,9 +1,9 @@
 KeycloakClientBundle
 ====================
 
-[![Latest Version](https://img.shields.io/github/release/mainick/KeycloakClientBundle.svg?style=flat-square)](https://github.com/mainick/KeycloakClientBundle/releases)
+[![Latest Version](https://img.shields.io/github/release/hamidou-ie/KeycloakClientBundle.svg?style=flat-square)](https://github.com/hamidou-ie/KeycloakClientBundle/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Total Downloads](https://img.shields.io/packagist/dt/mainick/keycloak-client-bundle.svg?style=flat-square)](https://packagist.org/packages/mainick/keycloak-client-bundle)
+[![Total Downloads](https://img.shields.io/packagist/dt/hamidou-ie/keycloak-client-bundle.svg?style=flat-square)](https://packagist.org/packages/hamidou-ie/keycloak-client-bundle)
 
 The `KeycloakClientBundle` bundle is a wrapper for the `stevenmaguire/oauth2-keycloak` package,
 designed to simplify Keycloak integration into your application in Symfony and provide additional functionality
@@ -13,13 +13,13 @@ It also includes a listener to verify the token on every request.
 ## Configuration
 
 Before installing this package, you need to configure it manually.
-You can do this by creating a `mainick_keycloak_client.yaml` file in the `config/packages` directory of your project
+You can do this by creating a `hamikod_keycloak_client.yaml` file in the `config/packages` directory of your project
 and adding the following configuration:
 
 ```yaml
-# config/packages/mainick_keycloak_client.yaml
+# config/packages/hamikod_keycloak_client.yaml
 
-mainick_keycloak_client:
+hamikod_keycloak_client:
   keycloak:
     verify_ssl: '%env(bool:IAM_VERIFY_SSL)%'
     base_url: '%env(IAM_BASE_URL)%'
@@ -42,7 +42,7 @@ Additionally, it's recommended to add the following environment variables to you
 (e.g., `.env` or `.env.local`) with the appropriate values for your configuration:
 
 ```shell
-###> mainick/keycloak-client-bundle ###
+###> hamikod/keycloak-client-bundle ###
 IAM_VERIFY_SSL=true # Verify SSL certificate
 IAM_BASE_URL='<your-base-server-url>'  # Keycloak server URL
 IAM_REALM='<your-realm>' # Keycloak realm name
@@ -53,7 +53,7 @@ IAM_ENCRYPTION_ALGORITHM='<your-algorithm>' # RS256, HS256, JWKS, etc.
 IAM_ENCRYPTION_KEY='<your-public-key>' # public key
 IAM_ENCRYPTION_KEY_PATH='<your-public-key-path>' # public key path
 IAM_VERSION='<your-version-keycloak>' # Keycloak version
-###< mainick/keycloak-client-bundle ###
+###< hamikod/keycloak-client-bundle ###
 ```
 
 Make sure to replace the placeholder values with your actual configuration values.
@@ -64,7 +64,7 @@ Once you have configured the package and environment variables, you can proceed 
 You can install this package using [Composer](http://getcomposer.org/):
 
 ```
-composer require mainick/keycloak-client-bundle
+composer require hamikod/keycloak-client-bundle
 ```
 
 Then, enable the bundle by adding it to the list of registered bundles
@@ -75,7 +75,7 @@ in the `config/bundles.php` file of your project:
 
 return [
     // ...
-    Mainick\KeycloakClientBundle\MainickKeycloakClientBundle::class => ['all' => true],
+    Hamikod\KeycloakClientBundle\HamikodKeycloakClientBundle::class => ['all' => true],
 ];
 ```
 
@@ -85,7 +85,7 @@ By configuring the package before installation, you ensure that it will be ready
 
 ### Get the Keycloak client
 
-You can get the Keycloak client by injecting the `Mainick\KeycloakClientBundle\Interface\IamClientInterface`
+You can get the Keycloak client by injecting the `Hamikod\KeycloakClientBundle\Interface\IamClientInterface`
 interface in your controller or service.
 
 To use it, you need to add the following configuration
@@ -93,8 +93,8 @@ to your `config/services.yaml` file:
 
 ```yaml
 services:
-    Mainick\KeycloakClientBundle\Interface\IamClientInterface:
-        alias: Mainick\KeycloakClientBundle\Provider\KeycloakClient
+    Hamikod\KeycloakClientBundle\Interface\IamClientInterface:
+        alias: Hamikod\KeycloakClientBundle\Provider\KeycloakClient
 ```
 
 Then, you can use it in your controller or service:
@@ -106,7 +106,7 @@ declare(strict_types=1);
 
 namespace App\Service;
 
-use Mainick\KeycloakClientBundle\Interface\IamClientInterface;
+use Hamikod\KeycloakClientBundle\Interface\IamClientInterface;
 
 class IamService
 {
@@ -199,7 +199,7 @@ and tag it as a `kernel.event_listener`. This will enable the listener to trigge
 
 ```yaml
 services:
-    Mainick\KeycloakClientBundle\EventSubscriber\TokenAuthListener:
+    Hamikod\KeycloakClientBundle\EventSubscriber\TokenAuthListener:
         tags:
           - { name: kernel.event_listener, event: kernel.request, method: checkValidToken, priority: 0 }
 ```
@@ -230,7 +230,7 @@ corresponding controller method.
 ```php
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Mainick\KeycloakClientBundle\Annotation\ExcludeTokenValidationAttribute;
+use Hamikod\KeycloakClientBundle\Annotation\ExcludeTokenValidationAttribute;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MyController extends AbstractController
@@ -257,30 +257,30 @@ To use the `KeycloakClientBundle` with Symfony's security component, you need to
 First you need to add a new section to the bundle configuration file:
 
 ```yaml
-# config/packages/mainick_keycloak_client.yaml
-mainick_keycloak_client:
+# config/packages/hamikod_keycloak_client.yaml
+hamikod_keycloak_client:
   security:
     default_target_route_name: '%env(TARGET_ROUTE_NAME)%'
 ```
 
-Then you need to configure the Keycloak redirect uri to the `mainick_keycloak_security_auth_connect_check` bundle route, which redirects to the default route or referer route after successful login.
+Then you need to configure the Keycloak redirect uri to the `hamikod_keycloak_security_auth_connect_check` bundle route, which redirects to the default route or referer route after successful login.
 
 It's recommended to change the following environment variable to your project's environment file
 (e.g., `.env` or `.env.local`) with the uri. The same URI must be configured in the Keycloak application client:
 
 ```shell
-###> mainick/keycloak-client-bundle ###
+###> hamikod/keycloak-client-bundle ###
 IAM_REDIRECT_URI='https://app.local/auth/keycloak/check'
 TARGET_ROUTE_NAME=app_home
-###< mainick/keycloak-client-bundle ###
+###< hamikod/keycloak-client-bundle ###
 ```
 
 Below is the complete configuration file:
 
 ```yaml
-# config/packages/mainick_keycloak_client.yaml
+# config/packages/hamikod_keycloak_client.yaml
 
-mainick_keycloak_client:
+hamikod_keycloak_client:
   keycloak:
     verify_ssl: '%env(bool:IAM_VERIFY_SSL)%'
     base_url: '%env(IAM_BASE_URL)%'
@@ -301,18 +301,18 @@ mainick_keycloak_client:
 Create a new file in ```config/routes/``` to load pre configured bundle routes.
 
 ```yaml
-# config/routes/mainick_keycloak_security.yaml
-mainick_keycloak_security_auth_connect:
+# config/routes/hamikod_keycloak_security.yaml
+hamikod_keycloak_security_auth_connect:
   path:       /auth/keycloak/connect
-  controller: Mainick\KeycloakClientBundle\Controller\KeycloakController::connect
+  controller: Hamikod\KeycloakClientBundle\Controller\KeycloakController::connect
 
-mainick_keycloak_security_auth_connect_check:
+hamikod_keycloak_security_auth_connect_check:
   path:       /auth/keycloak/check
-  controller: Mainick\KeycloakClientBundle\Controller\KeycloakController::connectCheck
+  controller: Hamikod\KeycloakClientBundle\Controller\KeycloakController::connectCheck
 
-mainick_keycloak_security_auth_logout:
+hamikod_keycloak_security_auth_logout:
   path:       /auth/keycloak/logout
-  controller: Mainick\KeycloakClientBundle\Controller\KeycloakController::logout
+  controller: Hamikod\KeycloakClientBundle\Controller\KeycloakController::logout
 ```
 
 ### Security configuration
@@ -323,8 +323,8 @@ You can do this by adding the following configuration to your `config/packages/s
 ```yaml
 # config/packages/security.yaml
 providers:
-  mainick_keycloak_user_provider:
-    id: Mainick\KeycloakClientBundle\Security\User\KeycloakUserProvider
+  hamikod_keycloak_user_provider:
+    id: Hamikod\KeycloakClientBundle\Security\User\KeycloakUserProvider
 ```
 
 Here is a simple configuration that restrict access to ```/app/*``` routes only to user with roles "ROLE_USER" or "ROLE_ADMIN" :
@@ -333,8 +333,8 @@ Here is a simple configuration that restrict access to ```/app/*``` routes only 
 # config/packages/security.yaml
 security:
   providers:
-    mainick_keycloak_user_provider:
-      id: Mainick\KeycloakClientBundle\Security\User\KeycloakUserProvider
+    hamikod_keycloak_user_provider:
+      id: Hamikod\KeycloakClientBundle\Security\User\KeycloakUserProvider
 
   firewalls:
     dev:
@@ -347,12 +347,12 @@ security:
 
     secured_area:
       pattern: ^/
-      provider: mainick_keycloak_user_provider
-      entry_point: Mainick\KeycloakClientBundle\Security\EntryPoint\KeycloakAuthenticationEntryPoint
+      provider: hamikod_keycloak_user_provider
+      entry_point: Hamikod\KeycloakClientBundle\Security\EntryPoint\KeycloakAuthenticationEntryPoint
       custom_authenticator:
-        - Mainick\KeycloakClientBundle\Security\Authenticator\KeycloakAuthenticator
+        - Hamikod\KeycloakClientBundle\Security\Authenticator\KeycloakAuthenticator
       logout:
-        path: mainick_keycloak_security_auth_logout
+        path: hamikod_keycloak_security_auth_logout
 
   role_hierarchy:
     ROLE_ADMIN: ROLE_USER
@@ -370,7 +370,7 @@ To logout the user, you can use the following code:
 ```php
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
-use Mainick\KeycloakClientBundle\Annotation\ExcludeTokenValidationAttribute;
+use Hamikod\KeycloakClientBundle\Annotation\ExcludeTokenValidationAttribute;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MyController extends AbstractController
@@ -378,7 +378,7 @@ class MyController extends AbstractController
     #[Route("/logout", name: "app.logout", methods: ["GET"])]
     public function logout(): RedirectResponse
     {
-        return $this->redirectToRoute('mainick_keycloak_security_auth_logout');
+        return $this->redirectToRoute('hamikod_keycloak_security_auth_logout');
     }
 }
 ```
@@ -386,7 +386,7 @@ class MyController extends AbstractController
 or create a link in your twig template:
 
 ```twig
-<a href="{{ path('mainick_keycloak_security_auth_logout') }}">Logout</a>
+<a href="{{ path('hamikod_keycloak_security_auth_logout') }}">Logout</a>
 ```
 
 This will redirect the user to the Keycloak logout page, where the user will be logged out from the Keycloak server.
@@ -397,9 +397,9 @@ To redirect the user to a specific route after login, you can set the `TARGET_RO
 to the desired route name.
 
 ```shell
-###> mainick/keycloak-client-bundle ###
+###> hamikod/keycloak-client-bundle ###
 TARGET_ROUTE_NAME=app_home
-###< mainick/keycloak-client-bundle ###
+###< hamikod/keycloak-client-bundle ###
 ```
 
 This will redirect the user to the `app_home` route after a successful login.
@@ -428,24 +428,24 @@ To use the `KeycloakAdminClient` provider, you need to configure it in your serv
 
 ```yaml
 services:
-    Mainick\KeycloakClientBundle\Interface\IamAdminClientInterface:
-        alias: Mainick\KeycloakClientBundle\Provider\KeycloakAdminClient
+    Hamikod\KeycloakClientBundle\Interface\IamAdminClientInterface:
+        alias: Hamikod\KeycloakClientBundle\Provider\KeycloakAdminClient
 ```
 
 You also need to add the following environment variables to your project's environment file:
 
 ```shell
-###> mainick/keycloak-client-bundle ###
+###> hamikod/keycloak-client-bundle ###
 IAM_ADMIN_REALM='master' # Keycloak admin realm name
 IAM_ADMIN_CLIENT_ID='admin-cli' # Keycloak admin client id
 IAM_ADMIN_USERNAME='admin' # Keycloak admin username
 IAM_ADMIN_PASSWORD='admin' # Keycloak admin password
-###< mainick/keycloak-client-bundle ###
+###< hamikod/keycloak-client-bundle ###
 ```
 
 ### Usage
 
-You can use the `KeycloakAdminClient` provider by injecting the `Mainick\KeycloakClientBundle\Interface\IamAdminClientInterface` interface in your controller or service:
+You can use the `KeycloakAdminClient` provider by injecting the `Hamikod\KeycloakClientBundle\Interface\IamAdminClientInterface` interface in your controller or service:
 
 ```php
 <?php
@@ -454,7 +454,7 @@ declare(strict_types=1);
 
 namespace App\Service;
 
-use Mainick\KeycloakClientBundle\Interface\IamAdminClientInterface;
+use Hamikod\KeycloakClientBundle\Interface\IamAdminClientInterface;
 
 class IamAdminService
 {
@@ -891,7 +891,7 @@ $user = $iamAdminClient->users()->get(
     realm: 'realm-test',
     userId: '8cd92f79-7919-4486-a0fb-0cb7dd517ac3'
 );
-$user->attributes = $user->attributes->with('social', ['mainick-facebook']);
+$user->attributes = $user->attributes->with('social', ['hamikod-facebook']);
 
 $userUpdated = $iamAdminClient->users()->update(
     realm: 'realm-test',
@@ -935,7 +935,7 @@ if ($userSessions->count()) {
 Install the [Composer](http://getcomposer.org/) dependencies:
 
 ```bash
-git clone https://github.com/mainick/KeycloakClientBundle.git
+git clone https://github.com/hamikod/KeycloakClientBundle.git
 cd KeycloakClientBundle
 composer update
 ```
@@ -948,7 +948,7 @@ composer test
 
 ## Author
 
-- [Maico Orazio](https://github.com/mainick)
+- [Maico Orazio](https://github.com/hamikod)
 
 ## License
 
@@ -957,9 +957,9 @@ The MIT License (MIT). Please see [License File](LICENSE) for more information.
 ## Contributing
 
 We welcome your contributions! If you wish to enhance this package or have found a bug,
-feel free to create a pull request or report an issue in the [issue tracker](https://github.com/mainick/KeycloakClientBundle/issues).
+feel free to create a pull request or report an issue in the [issue tracker](https://github.com/hamikod/KeycloakClientBundle/issues).
 
-Please see [CONTRIBUTING](https://github.com/mainick/KeycloakClientBundle/blob/main/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/hamikod/KeycloakClientBundle/blob/main/CONTRIBUTING.md) for details.
 
 <!-- ## Contributing -->
 <!-- Please see [Contributing](CONTRIBUTING.md) for details. -->

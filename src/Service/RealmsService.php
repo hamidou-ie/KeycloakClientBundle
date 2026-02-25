@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Service;
+namespace Hamikod\KeycloakClientBundle\Service;
 
-use Mainick\KeycloakClientBundle\Representation\Collection\RealmCollection;
-use Mainick\KeycloakClientBundle\Representation\RealmRepresentation;
+use Hamikod\KeycloakClientBundle\Representation\Collection\RealmCollection;
+use Hamikod\KeycloakClientBundle\Representation\RealmRepresentation;
 
 final class RealmsService extends Service
 {

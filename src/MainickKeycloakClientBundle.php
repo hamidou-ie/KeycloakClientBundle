@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle;
+namespace Hamikod\KeycloakClientBundle;
 
-use Mainick\KeycloakClientBundle\DependencyInjection\MainickKeycloakClientExtension;
+use Hamikod\KeycloakClientBundle\DependencyInjection\HamikodKeycloakClientExtension;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
-class MainickKeycloakClientBundle extends AbstractBundle
+class HamikodKeycloakClientBundle extends AbstractBundle
 {
     public function getPath(): string
     {
@@ -17,6 +17,6 @@ class MainickKeycloakClientBundle extends AbstractBundle
 
     public function getContainerExtension(): ?ExtensionInterface
     {
-        return new MainickKeycloakClientExtension();
+        return new HamikodKeycloakClientExtension();
     }
 }

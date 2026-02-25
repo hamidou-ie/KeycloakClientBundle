@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Token;
+namespace Hamikod\KeycloakClientBundle\Token;
 
-use Mainick\KeycloakClientBundle\Interface\AccessTokenInterface;
-use Mainick\KeycloakClientBundle\Interface\ResourceOwnerInterface;
+use Hamikod\KeycloakClientBundle\Interface\AccessTokenInterface;
+use Hamikod\KeycloakClientBundle\Interface\ResourceOwnerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class KeycloakResourceOwner implements ResourceOwnerInterface, UserInterface

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\DependencyInjection;
+namespace Hamikod\KeycloakClientBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class MainickKeycloakClientExtension extends Extension
+class HamikodKeycloakClientExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container): void
     {

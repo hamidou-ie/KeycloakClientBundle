@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Token;
+namespace Hamikod\KeycloakClientBundle\Token;
 
-use Mainick\KeycloakClientBundle\Interface\AccessTokenInterface;
+use Hamikod\KeycloakClientBundle\Interface\AccessTokenInterface;
 
 class AccessToken implements AccessTokenInterface
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Representation\Collection;
+namespace Hamikod\KeycloakClientBundle\Representation\Collection;
 
-use Mainick\KeycloakClientBundle\Representation\UserRepresentation;
+use Hamikod\KeycloakClientBundle\Representation\UserRepresentation;
 
 /**
  * @extends Collection<UserRepresentation>

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\DTO;
+namespace Hamikod\KeycloakClientBundle\DTO;
 
 final readonly class UserRepresentationDTO
 {

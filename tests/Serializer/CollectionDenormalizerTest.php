@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Tests\Serializer;
+namespace Hamikod\KeycloakClientBundle\Tests\Serializer;
 
-use Mainick\KeycloakClientBundle\Representation\Collection\RealmCollection;
-use Mainick\KeycloakClientBundle\Representation\RealmRepresentation;
-use Mainick\KeycloakClientBundle\Serializer\CollectionDenormalizer;
-use Mainick\KeycloakClientBundle\Serializer\RepresentationDenormalizer;
+use Hamikod\KeycloakClientBundle\Representation\Collection\RealmCollection;
+use Hamikod\KeycloakClientBundle\Representation\RealmRepresentation;
+use Hamikod\KeycloakClientBundle\Serializer\CollectionDenormalizer;
+use Hamikod\KeycloakClientBundle\Serializer\RepresentationDenormalizer;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;

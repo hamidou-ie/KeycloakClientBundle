@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Representation;
+namespace Hamikod\KeycloakClientBundle\Representation;
 
-use Mainick\KeycloakClientBundle\Representation\Collection\UPAttributeCollection;
-use Mainick\KeycloakClientBundle\Representation\Collection\UPGroupCollection;
+use Hamikod\KeycloakClientBundle\Representation\Collection\UPAttributeCollection;
+use Hamikod\KeycloakClientBundle\Representation\Collection\UPGroupCollection;
 
 final class UPConfig extends Representation
 {

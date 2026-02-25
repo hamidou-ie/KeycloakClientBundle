@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Mainick\KeycloakClientBundle\Tests\Provider;
+namespace Hamikod\KeycloakClientBundle\Tests\Provider;
 
 use Firebase\JWT\JWT;
 use GuzzleHttp\ClientInterface;
 use League\OAuth2\Client\Tool\QueryBuilderTrait;
-use Mainick\KeycloakClientBundle\Provider\KeycloakClient;
+use Hamikod\KeycloakClientBundle\Provider\KeycloakClient;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
