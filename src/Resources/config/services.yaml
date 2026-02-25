@@ -60,6 +60,10 @@ services:
         tags:
             - { name: kernel.event_listener, event: 'Symfony\Component\Security\Http\Event\LogoutEvent', priority: -10 }
 
+    HamidouIe\KeycloakClientBundle\DependencyInjection\EnvVarProcessor\KeycloakDerivedEnvVarProcessor:
+        public: false
+        tags: [ 'container.env_var_processor' ]
+
     # Rimuovi questi normalizzatori dall'autowiring automatico per evitare
     # che Symfony provi a iniettare dipendenze circolari
     HamidouIe\KeycloakClientBundle\Serializer\CollectionDenormalizer:

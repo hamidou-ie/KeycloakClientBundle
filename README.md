@@ -86,12 +86,10 @@ By configuring the package before installation, you ensure that it will be ready
 ### Symfony 8 stateless API (access_token OIDC)
 
 If your application uses Symfony 8 `security.access_token` with an OIDC token handler, you **do not need** extra `KEYCLOAK_*` environment variables.
-This bundle derives the required values from `IAM_BASE_URL`, `IAM_REALM`, and `IAM_CLIENT_ID` and exposes them as container parameters:
+This bundle derives the required values from `IAM_BASE_URL`, `IAM_REALM`, and `IAM_CLIENT_ID` through **env var processors**:
 
-- `hamidou_ie_keycloak_client.oidc.issuer` (default: `{IAM_BASE_URL}/realms/{IAM_REALM}`)
-- `hamidou_ie_keycloak_client.oidc.discovery_base_uri` (default: `issuer + "/"`)
-- `hamidou_ie_keycloak_client.oidc.client_id` (default: `IAM_CLIENT_ID`)
-- `hamidou_ie_keycloak_client.oidc.audience` (default: `IAM_CLIENT_ID`)
+- `%env(keycloak_issuer:IAM_BASE_URL)%` → `{IAM_BASE_URL}/realms/{IAM_REALM}`
+- `%env(keycloak_discovery_base_uri:IAM_BASE_URL)%` → `issuer + "/"`
 
 Example `security.yaml` snippet:
 
@@ -100,7 +98,7 @@ security:
     providers:
         oidc_user_provider:
             # Use either your own user provider service or the optional one from this bundle (see below)
-            id: HamidouIe\KeycloakClientBundle\Security\User\DoctrineOidcUserProvider
+            id:         HamidouIe\KeycloakClientBundle\Security\User\DoctrineOidcUserProvider
 
     firewalls:
         main:
@@ -111,10 +109,10 @@ security:
                     oidc:
                         claim: email
                         algorithms: [ 'RS256' ]
-                        audience: '%hamidou_ie_keycloak_client.oidc.audience%'
-                        issuers: [ '%hamidou_ie_keycloak_client.oidc.issuer%' ]
+                        audience: '%env(IAM_CLIENT_ID)%'
+                        issuers: [ '%env(keycloak_issuer:IAM_BASE_URL)%' ]
                         discovery:
-                            base_uri: '%hamidou_ie_keycloak_client.oidc.discovery_base_uri%'
+                            base_uri: '%env(keycloak_discovery_base_uri:IAM_BASE_URL)%'
                             cache:
                                 id: cache.app
 ```
